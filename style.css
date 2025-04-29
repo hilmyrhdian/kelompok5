@@ -1,0 +1,46 @@
+
+body { background: #f0f2f5; padding: 20px; }
+.table-card { 
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.table-card.selected { 
+    background: #e3f2fd;
+    border: 2px solid #2196f3;
+}
+.menu-item {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+#cart {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.judul-web {
+    color: #2196f3;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.payment-method {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.payment-method:hover {
+    background: #f8f9fa;
+}
+.payment-method.selected {
+    border-color: #2196f3;
+    background: #e3f2fd;
+}
