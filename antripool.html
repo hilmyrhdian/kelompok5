@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AntriPool</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('Background 2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .table-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .selected {
+            border: 2px solid #ff4444;
+        }
+        .menu-item {
+            background-color: #ffffff;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        #cart {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            background-color: #f1d4d4;
+            padding: 15px;
+            border-radius: 10px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Antri Pool</h1>
+
+        <!-- Booking Section -->
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Booking Meja</h2>
+                <div class="row" id="tables">
+                    <!-- Tables will be dynamically added here -->
+                </div>
+                
+                <div class="time-selection mt-4">
+                    <h4>Tentukan Jam</h4>
+                    <input type="datetime-local" id="booking-time" class="form-control">
+                </div>
+            </div>
+
+            <!-- Food Menu -->
+            <div class="col-md-4">
+                <h2>Pilih Menu</h2>
+                <div id="menu">
+                    <div class="menu-item">
+                        <h5>Cireng</h5>
+                        <p>Rp 15.000 <button class="btn btn-sm btn-success float-end" onclick="addToCart('Cireng', 15000)">Add</button></p>
+                    </div>
+                    <div class="menu-item">
+                        <h5>Indomie</h5>
+                        <p>Rp 18.000 <button class="btn btn-sm btn-success float-end" onclick="addToCart('Indomie', 18000)">Add</button></p>
+                    </div>
+                    <div class="menu-item">
+                        <h5>Es Jeruk</h5>
+                        <p>Rp 8.000 <button class="btn btn-sm btn-success float-end" onclick="addToCart('Es Jeruk', 8000)">Add</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cart -->
+        <div id="cart">
+            <h4>Pesanan Anda</h4>
+            <div id="cart-items"></div>
+            <hr>
+            <p>Total: Rp<span id="total">0.00</span></p>
+            <button class="btn btn-danger w-100" onclick="checkout()">Checkout</button>
+        </div>
+
+        <!-- Booking Details Form -->
+        <div class="mt-5" id="booking-form">
+            <h3>Booking Details</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" id="name" class="form-control mb-2" placeholder="Nama">
+                </div>
+                <div class="col-md-6">
+                    <input type="tel" id="phone" class="form-control mb-2" placeholder="Nomor Telepon">
+                </div>
+            </div>
+            <button class="btn btn-primary mt-2" onclick="confirmBooking()">Confirm Booking</button>
+        </div>
+    </div>
+
+    <script>
+        // Initialize tables
+        const tables = [
+            { id: 1, type: "Xing jue", price: 25000 },
+            { id: 2, type: "Xing jue", price: 15000 },
+            { id: 3, type: "Mr. Sung", price: 25000 },
+            { id: 4, type: "Mr. Sung", price: 25000 }
+        ];
+
+        let selectedTable
+        
+        // Initialize tables display
+        function initTables() {
+            const tablesContainer = document.getElementById('tables');
+            tables.forEach(table => {
+                const tableElement = document.createElement('div');
+                tableElement.className = 'col-6 table-card';
+                tableElement.innerHTML = `
+                    <h4>Table ${table.id}</h4>
+                    <p>Type: ${table.type}</p>
+                    <p>$${table.price}/hour</p>
+                `;
+                tableElement.addEventListener('click', () => selectTable(table, tableElement));
+                tablesContainer.appendChild(tableElement);
+            });
+        }
+
+        function selectTable(table, element) {
+            selectedTable = table;
+            document.querySelectorAll('.table-card').forEach(t => t.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+
+        // Cart functionality
+        function addToCart(itemName, price) {
+            cart.push({ name: itemName, price: price });
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cart-items');
+            const totalElement = document.getElementById('total');
+            let total = 0;
+            
+            cartItems.innerHTML = '';
+            cart.forEach(item => {
+                total += item.price;
+                cartItems.innerHTML += `
+                    <div class="d-flex justify-content-between">
+                        <span>${item.name}</span>
+                        <span>$${item.price.toFixed(2)}</span>
+                    </div>
+                `;
+            });
+            
+            totalElement.textContent = total.toFixed(2);
+        }
+
+        function checkout() {
+            if (!selectedTable) {
+                alert('Pilih Meja terlebih dahulu');
+                return;
+            }
+            if (cart.length === 0) {
+                alert('Tambahkan item untuk dimasukan ke keranjang');
+                return;
+            }
+            // Here you would typically send the order to a server
+            alert('Pesanan Selesai!');
+            cart = [];
+            updateCartDisplay();
+        }
+
+        function confirmBooking() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const time = document.getElementById('booking-time').value;
+
+            if (!name || !phone || !time || !selectedTable) {
+                alert('Please fill in all fields and select a table!');
+                return;
+            }
+
+            // Here you would typically send the booking to a server
+            alert(`Booking confirmed!\nName: ${name}\nPhone: ${phone}\nTable: ${selectedTable.id}\nTime: ${time}`);
+        }
+
+        // Initialize the page
+        initTables();
+    </script>
+</body>
+</html>
