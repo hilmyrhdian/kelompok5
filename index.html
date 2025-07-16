@@ -1,12 +1,459 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>kelompok 5</h1>
+<html lang="id">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Antripool</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">Antripool</div>
+        <nav>
+          <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#booking">Booking</a></li>
+            <li><a href="#about">Tentang Kami</a></li>
+            <li><a href="#contact">Kontak</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h2>Booking Tempat Billiard Online</h2>
+        <p>Pesan meja billiard favorit Anda dengan mudah dan cepat</p>
+        <a href="#booking" class="btn">Booking Sekarang</a>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="booking-section" id="booking">
+        <!-- Left Column - Booking Form -->
+        <div class="booking-form">
+          <h3>Form Booking</h3>
+          <form id="billiardBookingForm">
+            <div class="form-group">
+              <label for="name">Nama Lengkap</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">No. Handphone</label>
+              <input type="tel" id="phone" name="phone" required />
+            </div>
+            <div class="form-group">
+              <label for="tableNumber">Nomor Meja</label>
+              <select id="tableNumber" name="tableNumber" required>
+                <!-- Opsi meja akan diisi oleh JavaScript -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="date">Tanggal Booking</label>
+              <input type="date" id="date" name="date" required />
+            </div>
+            <div class="form-group">
+              <label for="time">Jam Mulai</label>
+              <input type="time" id="time" name="time" required />
+            </div>
+            <div class="form-group">
+              <label for="duration">Durasi (jam)</label>
+              <select id="duration" name="duration" required>
+                <option value="1">1 Jam</option>
+                <option value="2">2 Jam</option>
+                <option value="3">3 Jam</option>
+                <option value="4">4 Jam</option>
+              </select>
+            </div>
+            <button type="submit" class="btn">Konfirmasi Booking</button>
+          </form>
+        </div>
+
+        <!-- Right Column - Tables and Menu -->
+        <div class="right-column">
+          <div class="tables-display">
+            <h3>Status Meja</h3>
+            <p>Pilih meja yang tersedia (hijau)</p>
+            <div class="tables-container" id="tablesContainer">
+              <!-- Meja akan digenerate oleh JavaScript -->
+            </div>
+          </div>
+
+          <div class="menu-section">
+            <h3>Menu Makanan & Minuman</h3>
+            <div class="menu-items" id="menuItemsContainer">
+                <!-- Menu akan di-generate oleh JavaScript -->
+                <div class="menu-item" data-id="1" data-price="15000"><h4>Cireng</h4><span class="price">Rp 15.000</span><div class="quantity-control"><button type="button" class="decrease" data-item="1">-</button><input type="number" id="item-1" value="0" readonly /><button type="button" class="increase" data-item="1">+</button></div></div>
+                <div class="menu-item" data-id="2" data-price="45000"><h4>Mix Platter</h4><span class="price">Rp 45.000</span><div class="quantity-control"><button type="button" class="decrease" data-item="2">-</button><input type="number" id="item-2" value="0" readonly /><button type="button" class="increase" data-item="2">+</button></div></div>
+                <div class="menu-item" data-id="3" data-price="25000"><h4>Kentang Goreng</h4><span class="price">Rp 25.000</span><div class="quantity-control"><button type="button" class="decrease" data-item="3">-</button><input type="number" id="item-3" value="0" readonly /><button type="button" class="increase" data-item="3">+</button></div></div>
+                <div class="menu-item" data-id="4" data-price="35000"><h4>Chicken Bulgogi</h4><span class="price">Rp 35.000</span><div class="quantity-control"><button type="button" class="decrease" data-item="4">-</button><input type="number" id="item-4" value="0" readonly /><button type="button" class="increase" data-item="4">+</button></div></div>
+                <div class="menu-item" data-id="5" data-price="10000"><h4>Es Teh</h4><span class="price">Rp 10.000</span><div class="quantity-control"><button type="button" class="decrease" data-item="5">-</button><input type="number" id="item-5" value="0" readonly /><button type="button" class="increase" data-item="5">+</button></div></div>
+                <div class="menu-item" data-id="6" data-price="20000"><h4>Coffee</h4><span class="price">Rp 20.000</span><div class="quantity-control"><button type="button" class="decrease" data-item="6">-</button><input type="number" id="item-6" value="0" readonly /><button type="button" class="increase" data-item="6">+</button></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bookings-list">
+        <h3>Booking Saya</h3>
+        <div id="myBookings">
+          <!-- Bookings akan ditampilkan di sini oleh JavaScript -->
+        </div>
+      </section>
+    </div>
+
+    <div class="modal" id="confirmationModal">
+      <div class="modal-content">
+        <span class="close-btn" id="closeModal">&times;</span>
+        <h3>Konfirmasi Booking</h3>
+        <div id="bookingDetails"></div>
+        <button class="btn" id="confirmBookingBtn">Konfirmasi</button>
+      </div>
+    </div>
     
-</body>
+    <div class="modal" id="messageModal">
+        <div class="modal-content">
+            <h3 id="messageModalTitle">Info</h3>
+            <p id="messageModalText"></p>
+            <button class="btn" id="messageModalClose">Tutup</button>
+        </div>
+    </div>
+
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Antripool Billiard. Semua hak dilindungi.</p>
+      </div>
+    </footer>
+
+    <script>
+        // ====================================================================
+        // JAVASCRIPT BARU UNTUK BERINTERAKSI DENGAN BACKEND PHP
+        // ====================================================================
+
+        // --- ELEMEN DOM ---
+        const tablesContainer = document.getElementById('tablesContainer');
+        const bookingForm = document.getElementById('billiardBookingForm');
+        const myBookingsContainer = document.getElementById('myBookings');
+        const tableSelect = document.getElementById('tableNumber');
+        const menuItemsContainer = document.getElementById('menuItemsContainer');
+        
+        // Modal Konfirmasi
+        const confirmationModal = document.getElementById('confirmationModal');
+        const closeConfirmationModal = document.getElementById('closeModal');
+        const bookingDetailsContainer = document.getElementById('bookingDetails');
+        const confirmBookingBtn = document.getElementById('confirmBookingBtn');
+        
+        // Modal Pesan (pengganti alert)
+        const messageModal = document.getElementById('messageModal');
+        const messageModalTitle = document.getElementById('messageModalTitle');
+        const messageModalText = document.getElementById('messageModalText');
+        const messageModalClose = document.getElementById('messageModalClose');
+
+        // URL API Backend
+        // DIPERBAIKI: Menggunakan URL lengkap untuk mengatasi error "Failed to parse URL".
+        const API_URL = 'http://kelompok5.test/api/api.php';
+        
+        // --- FUNGSI-FUNGSI UTAMA ---
+
+        /**
+         * Menampilkan pesan custom di modal. Pengganti alert().
+         * @param {string} title - Judul modal.
+         * @param {string} text - Isi pesan.
+         */
+        function showMessage(title, text) {
+            messageModalTitle.textContent = title;
+            messageModalText.textContent = text;
+            messageModal.style.display = 'flex';
+        }
+
+        /**
+         * Mengambil data meja dari backend dan merendernya.
+         */
+        async function renderTables() {
+            try {
+                const response = await fetch(`${API_URL}?action=get_tables`);
+                // Tambahkan pengecekan jika response tidak OK (misal: 404)
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const tables = await response.json();
+
+                tablesContainer.innerHTML = '';
+                tableSelect.innerHTML = '<option value="">Pilih Meja</option>';
+
+                tables.forEach(table => {
+                    // Render tampilan status meja
+                    const tableEl = document.createElement('div');
+                    tableEl.className = `table-item ${table.status}`;
+                    tableEl.innerHTML = `<h4>${table.name}</h4><div class="status ${table.status}">${table.status === 'available' ? 'Tersedia' : 'Terpesan'}</div>`;
+                    tableEl.addEventListener('click', () => selectTable(table));
+                    tablesContainer.appendChild(tableEl);
+
+                    // Isi dropdown di form, hanya jika tersedia
+                    if (table.status === 'available') {
+                        const optionEl = document.createElement('option');
+                        optionEl.value = table.id;
+                        optionEl.textContent = table.name;
+                        tableSelect.appendChild(optionEl);
+                    }
+                });
+            } catch (error) {
+                console.error('Error fetching tables:', error);
+                showMessage('Error', 'Gagal memuat data meja. Periksa console untuk detail.');
+            }
+        }
+
+        /**
+         * Mengambil data booking dari backend dan merendernya.
+         */
+        async function renderBookings() {
+            try {
+                const response = await fetch(`${API_URL}?action=get_bookings`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const bookings = await response.json();
+
+                if (bookings.length === 0) {
+                    myBookingsContainer.innerHTML = `<div class="booking-item"><div class="booking-details"><h4>Belum ada booking</h4><p>Silakan lakukan booking untuk melihat daftar booking Anda</p></div></div>`;
+                    return;
+                }
+
+                myBookingsContainer.innerHTML = '';
+                bookings.forEach(booking => {
+                    const bookingEl = document.createElement('div');
+                    bookingEl.className = 'booking-item';
+
+                    const bookingDate = new Date(`${booking.booking_date}T${booking.start_time}`);
+                    const formattedDate = bookingDate.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+                    const formattedTime = bookingDate.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+
+                    let foodOrdersHTML = '';
+                    let totalFoodPrice = 0;
+                    if (booking.orders && booking.orders.length > 0) {
+                        foodOrdersHTML = "<div class='food-orders'><h5>Pesanan:</h5><ul>";
+                        booking.orders.forEach(order => {
+                            const itemTotal = order.quantity * order.price;
+                            totalFoodPrice += itemTotal;
+                            foodOrdersHTML += `<li>${order.name}: ${order.quantity} x Rp ${parseFloat(order.price).toLocaleString('id-ID')}</li>`;
+                        });
+                        foodOrdersHTML += `</ul><p><strong>Total Makanan/Minuman: Rp ${totalFoodPrice.toLocaleString('id-ID')}</strong></p></div>`;
+                    }
+                    
+                    const totalBill = (booking.duration_hours * 50000) + totalFoodPrice;
+
+                    bookingEl.innerHTML = `
+                        <div class="booking-details">
+                            <h4>Booking #${booking.id}: ${booking.customer_name}</h4>
+                            <p>Meja ${booking.table_name} - ${formattedDate} pukul ${formattedTime}</p>
+                            <p>Durasi: ${booking.duration_hours} jam (Rp ${(booking.duration_hours * 50000).toLocaleString('id-ID')})</p>
+                            ${foodOrdersHTML}
+                            <p><strong>Total Keseluruhan: Rp ${totalBill.toLocaleString('id-ID')}</strong></p>
+                        </div>
+                        <div class="booking-actions">
+                            <button class="btn" onclick="cancelBooking(${booking.id})">Batalkan</button>
+                        </div>
+                    `;
+                    myBookingsContainer.appendChild(bookingEl);
+                });
+            } catch (error) {
+                console.error('Error fetching bookings:', error);
+                showMessage('Error', 'Gagal memuat data booking. Periksa console untuk detail.');
+            }
+        }
+
+        /**
+         * Membatalkan booking dengan mengirim request ke backend.
+         * @param {number} bookingId - ID dari booking yang akan dibatalkan.
+         */
+        async function cancelBooking(bookingId) {
+            if (!confirm('Apakah Anda yakin ingin membatalkan booking ini?')) return;
+
+            const formData = new FormData();
+            formData.append('action', 'cancel_booking');
+            formData.append('id', bookingId);
+            
+            try {
+                const response = await fetch(API_URL, { method: 'POST', body: formData });
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    showMessage('Sukses', result.message);
+                    // Muat ulang data setelah berhasil
+                    renderTables();
+                    renderBookings();
+                } else {
+                    showMessage('Gagal', result.message);
+                }
+            } catch (error) {
+                console.error('Error canceling booking:', error);
+                showMessage('Error', 'Terjadi kesalahan saat membatalkan booking.');
+            }
+        }
+
+        /**
+         * Menangani klik pada item meja.
+         * @param {object} table - Objek data meja yang diklik.
+         */
+        function selectTable(table) {
+            if (table.status === 'booked') {
+                showMessage('Info', 'Maaf, meja ini sudah terpesan. Silakan pilih meja lain.');
+                return;
+            }
+            tableSelect.value = table.id;
+            document.querySelector('.booking-form').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        /**
+         * Menangani submit form booking.
+         */
+        bookingForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            // Mengumpulkan data pesanan dari menu
+            const menuItems = [];
+            document.querySelectorAll('.menu-item').forEach(itemEl => {
+                const id = itemEl.dataset.id;
+                const quantity = parseInt(itemEl.querySelector('input').value);
+                if (quantity > 0) {
+                    menuItems.push({ id: id, quantity: quantity });
+                }
+            });
+
+            // Membuat objek FormData untuk dikirim ke modal konfirmasi
+            const formData = new FormData(bookingForm);
+            const bookingData = Object.fromEntries(formData.entries());
+            bookingData.menuItems = menuItems;
+            
+            // Tampilkan detail di modal konfirmasi
+            displayConfirmation(bookingData);
+        });
+
+        /**
+         * Menampilkan detail booking di modal untuk konfirmasi akhir.
+         * @param {object} data - Data booking dari form.
+         */
+        function displayConfirmation(data) {
+            const { name, phone, tableNumber, date, time, duration, menuItems } = data;
+            
+            const bookingDate = new Date(`${date}T${time}`);
+            const formattedDate = bookingDate.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            const formattedTime = bookingDate.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+            const selectedTableName = tableSelect.options[tableSelect.selectedIndex].text;
+
+            let foodOrderDetails = '';
+            let totalFoodPrice = 0;
+            if (menuItems.length > 0) {
+                foodOrderDetails = `<div class="food-order-details"><h4>Pesanan Makanan/Minuman:</h4>`;
+                menuItems.forEach(item => {
+                    const itemEl = document.querySelector(`.menu-item[data-id='${item.id}']`);
+                    const itemName = itemEl.querySelector('h4').textContent;
+                    const itemPrice = parseFloat(itemEl.dataset.price);
+                    totalFoodPrice += item.quantity * itemPrice;
+                    foodOrderDetails += `<p>${itemName}: ${item.quantity} x Rp ${itemPrice.toLocaleString('id-ID')}</p>`;
+                });
+                foodOrderDetails += `<p><strong>Total Makanan/Minuman: Rp ${totalFoodPrice.toLocaleString('id-ID')}</strong></p></div>`;
+            }
+
+            const totalBill = (duration * 50000) + totalFoodPrice;
+
+            bookingDetailsContainer.innerHTML = `
+                <p><strong>Nama:</strong> ${name}</p>
+                <p><strong>No. HP:</strong> ${phone}</p>
+                <p><strong>Meja:</strong> ${selectedTableName}</p>
+                <p><strong>Tanggal:</strong> ${formattedDate}</p>
+                <p><strong>Jam:</strong> ${formattedTime}</p>
+                <p><strong>Durasi:</strong> ${duration} jam (Rp ${(duration * 50000).toLocaleString('id-ID')})</p>
+                ${foodOrderDetails}
+                <p><strong>Total Harga:</strong> Rp ${totalBill.toLocaleString('id-ID')}</p>
+            `;
+            
+            // Simpan data ke tombol konfirmasi untuk dikirim ke backend
+            confirmBookingBtn.dataset.booking = JSON.stringify(data);
+            confirmationModal.style.display = 'flex';
+        }
+
+        /**
+         * Mengirim data booking yang sudah dikonfirmasi ke backend.
+         */
+        confirmBookingBtn.addEventListener('click', async function() {
+            const bookingData = JSON.parse(this.dataset.booking);
+
+            const formData = new FormData();
+            formData.append('action', 'create_booking');
+            formData.append('name', bookingData.name);
+            formData.append('phone', bookingData.phone);
+            formData.append('tableNumber', bookingData.tableNumber);
+            formData.append('date', bookingData.date);
+            formData.append('time', bookingData.time);
+            formData.append('duration', bookingData.duration);
+            formData.append('menuItems', JSON.stringify(bookingData.menuItems));
+            
+            try {
+                const response = await fetch(API_URL, { method: 'POST', body: formData });
+                const result = await response.json();
+
+                confirmationModal.style.display = 'none';
+
+                if (result.status === 'success') {
+                    showMessage('Sukses', result.message);
+                    bookingForm.reset(); // Reset form
+                    document.querySelectorAll('.menu-items input[type="number"]').forEach(input => input.value = 0); // Reset menu
+                    // Muat ulang data
+                    renderTables();
+                    renderBookings();
+                } else {
+                    showMessage('Gagal', result.message || 'Terjadi kesalahan yang tidak diketahui.');
+                }
+            } catch (error) {
+                console.error('Error creating booking:', error);
+                confirmationModal.style.display = 'none';
+                showMessage('Error', 'Terjadi kesalahan saat membuat booking.');
+            }
+        });
+
+        /**
+         * Setup untuk tombol +/- pada menu.
+         */
+        function setupQuantityControls() {
+            menuItemsContainer.addEventListener('click', function(e) {
+                const target = e.target;
+                if (target.classList.contains('increase') || target.classList.contains('decrease')) {
+                    const itemId = target.dataset.item;
+                    const input = document.getElementById(`item-${itemId}`);
+                    let currentValue = parseInt(input.value);
+                    if (target.classList.contains('increase')) {
+                        input.value = currentValue + 1;
+                    } else if (currentValue > 0) {
+                        input.value = currentValue - 1;
+                    }
+                }
+            });
+        }
+        
+        // --- INISIALISASI & EVENT LISTENERS LAINNYA ---
+
+        // Jalankan fungsi-fungsi awal saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTables();
+            renderBookings();
+            setupQuantityControls();
+
+            // Set tanggal minimal untuk input date (hari ini)
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('date').min = today;
+        });
+        
+        // Event listener untuk menutup modal
+        closeConfirmationModal.addEventListener('click', () => confirmationModal.style.display = 'none');
+        messageModalClose.addEventListener('click', () => messageModal.style.display = 'none');
+        window.addEventListener('click', (event) => {
+            if (event.target === confirmationModal) confirmationModal.style.display = 'none';
+            if (event.target === messageModal) messageModal.style.display = 'none';
+        });
+
+    </script>
+  </body>
 </html>
