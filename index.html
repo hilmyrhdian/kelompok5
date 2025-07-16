@@ -1,9 +1,17 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
+=======
+HEAD
+>>>>>>> a9ecc7cb65d23e524a4f33afeb9296b58a2104a7
 <html lang="id">
   <head>
     <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< HEAD
+=======
+
+>>>>>>> a9ecc7cb65d23e524a4f33afeb9296b58a2104a7
     <title>Antripool</title>
   </head>
   <body>
@@ -46,7 +54,17 @@
             <div class="form-group">
               <label for="tableNumber">Nomor Meja</label>
               <select id="tableNumber" name="tableNumber" required>
+<<<<<<< HEAD
                 <!-- Opsi meja akan diisi oleh JavaScript -->
+=======
+                <option value="">Pilih Meja</option>
+                <option value="1">Meja 1</option>
+                <option value="2">Meja 2</option>
+                <option value="3">Meja 3</option>
+                <option value="4">Meja 4</option>
+                <option value="5">Meja 5</option>
+                <option value="6">Meja 6</option>
+>>>>>>> a9ecc7cb65d23e524a4f33afeb9296b58a2104a7
               </select>
             </div>
             <div class="form-group">
@@ -72,10 +90,15 @@
 
         <!-- Right Column - Tables and Menu -->
         <div class="right-column">
+<<<<<<< HEAD
+=======
+          <!-- Tables Status -->
+>>>>>>> a9ecc7cb65d23e524a4f33afeb9296b58a2104a7
           <div class="tables-display">
             <h3>Status Meja</h3>
             <p>Pilih meja yang tersedia (hijau)</p>
             <div class="tables-container" id="tablesContainer">
+<<<<<<< HEAD
               <!-- Meja akan digenerate oleh JavaScript -->
             </div>
           </div>
@@ -90,6 +113,149 @@
                 <div class="menu-item" data-id="4" data-price="35000"><h4>Chicken Bulgogi</h4><span class="price">Rp 35.000</span><div class="quantity-control"><button type="button" class="decrease" data-item="4">-</button><input type="number" id="item-4" value="0" readonly /><button type="button" class="increase" data-item="4">+</button></div></div>
                 <div class="menu-item" data-id="5" data-price="10000"><h4>Es Teh</h4><span class="price">Rp 10.000</span><div class="quantity-control"><button type="button" class="decrease" data-item="5">-</button><input type="number" id="item-5" value="0" readonly /><button type="button" class="increase" data-item="5">+</button></div></div>
                 <div class="menu-item" data-id="6" data-price="20000"><h4>Coffee</h4><span class="price">Rp 20.000</span><div class="quantity-control"><button type="button" class="decrease" data-item="6">-</button><input type="number" id="item-6" value="0" readonly /><button type="button" class="increase" data-item="6">+</button></div></div>
+=======
+              <!-- Tables will be generated here by JavaScript -->
+            </div>
+          </div>
+
+          <!-- Food and Drink Menu -->
+          <div class="menu-section">
+            <h3>Menu Makanan & Minuman</h3>
+            <div class="menu-items">
+              <div class="menu-item">
+                <h4>Cireng</h4>
+                <span class="price">Rp 15.000</span>
+                <div class="quantity-control">
+                  <button type="button" class="decrease" data-item="cireng">
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    id="cireng"
+                    name="cireng"
+                    min="0"
+                    value="0"
+                    readonly
+                  />
+                  <button type="button" class="increase" data-item="cireng">
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <h4>Mix Platter</h4>
+                <span class="price">Rp 45.000</span>
+                <div class="quantity-control">
+                  <button type="button" class="decrease" data-item="mixPlatter">
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    id="mixPlatter"
+                    name="mixPlatter"
+                    min="0"
+                    value="0"
+                    readonly
+                  />
+                  <button type="button" class="increase" data-item="mixPlatter">
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <h4>Kentang Goreng</h4>
+                <span class="price">Rp 25.000</span>
+                <div class="quantity-control">
+                  <button type="button" class="decrease" data-item="kentang">
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    id="kentang"
+                    name="kentang"
+                    min="0"
+                    value="0"
+                    readonly
+                  />
+                  <button type="button" class="increase" data-item="kentang">
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <h4>Chicken Bulgogi</h4>
+                <span class="price">Rp 35.000</span>
+                <div class="quantity-control">
+                  <button
+                    type="button"
+                    class="decrease"
+                    data-item="chickenBulgogi"
+                  >
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    id="chickenBulgogi"
+                    name="chickenBulgogi"
+                    min="0"
+                    value="0"
+                    readonly
+                  />
+                  <button
+                    type="button"
+                    class="increase"
+                    data-item="chickenBulgogi"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <h4>Es Teh</h4>
+                <span class="price">Rp 10.000</span>
+                <div class="quantity-control">
+                  <button type="button" class="decrease" data-item="esTeh">
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    id="esTeh"
+                    name="esTeh"
+                    min="0"
+                    value="0"
+                    readonly
+                  />
+                  <button type="button" class="increase" data-item="esTeh">
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <h4>Coffee</h4>
+                <span class="price">Rp 20.000</span>
+                <div class="quantity-control">
+                  <button type="button" class="decrease" data-item="coffee">
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    id="coffee"
+                    name="coffee"
+                    min="0"
+                    value="0"
+                    readonly
+                  />
+                  <button type="button" class="increase" data-item="coffee">
+                    +
+                  </button>
+                </div>
+              </div>
+>>>>>>> a9ecc7cb65d23e524a4f33afeb9296b58a2104a7
             </div>
           </div>
         </div>
@@ -98,7 +264,17 @@
       <section class="bookings-list">
         <h3>Booking Saya</h3>
         <div id="myBookings">
+<<<<<<< HEAD
           <!-- Bookings akan ditampilkan di sini oleh JavaScript -->
+=======
+          <!-- Bookings will be displayed here by JavaScript -->
+          <div class="booking-item">
+            <div class="booking-details">
+              <h4>Belum ada booking</h4>
+              <p>Silakan lakukan booking untuk melihat daftar booking Anda</p>
+            </div>
+          </div>
+>>>>>>> a9ecc7cb65d23e524a4f33afeb9296b58a2104a7
         </div>
       </section>
     </div>
@@ -108,6 +284,7 @@
         <span class="close-btn" id="closeModal">&times;</span>
         <h3>Konfirmasi Booking</h3>
         <div id="bookingDetails"></div>
+<<<<<<< HEAD
         <button class="btn" id="confirmBookingBtn">Konfirmasi</button>
       </div>
     </div>
@@ -120,14 +297,28 @@
         </div>
     </div>
 
+=======
+        <button class="btn" id="confirmBooking">Konfirmasi</button>
+      </div>
+    </div>
+>>>>>>> a9ecc7cb65d23e524a4f33afeb9296b58a2104a7
 
     <footer>
       <div class="container">
         <p>&copy; 2025 Antripool Billiard. Semua hak dilindungi.</p>
+<<<<<<< HEAD
+=======
+        <div class="social-links">
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">WhatsApp</a>
+        </div>
+>>>>>>> a9ecc7cb65d23e524a4f33afeb9296b58a2104a7
       </div>
     </footer>
 
     <script>
+<<<<<<< HEAD
         // ====================================================================
         // JAVASCRIPT BARU UNTUK BERINTERAKSI DENGAN BACKEND PHP
         // ====================================================================
@@ -457,3 +648,386 @@
     </script>
   </body>
 </html>
+=======
+      // Data untuk mensimulasikan status meja
+      let tables = [
+        { id: 1, name: "Meja 1", status: "available" },
+        { id: 2, name: "Meja 2", status: "available" },
+        { id: 3, name: "Meja 3", status: "booked" },
+        { id: 4, name: "Meja 4", status: "available" },
+        { id: 5, name: "Meja 5", status: "booked" },
+        { id: 6, name: "Meja 6", status: "available" },
+      ];
+
+      // Array untuk menyimpan booking yang telah dibuat
+      let myBookings = [];
+
+      // Harga menu makanan/minuman
+      const menuPrices = {
+        cireng: 15000,
+        mixPlatter: 45000,
+        kentang: 25000,
+        chickenBulgogi: 35000,
+        esTeh: 10000,
+        coffee: 20000,
+      };
+
+      // Elemen DOM
+      const tablesContainer = document.getElementById("tablesContainer");
+      const bookingForm = document.getElementById("billiardBookingForm");
+      const myBookingsContainer = document.getElementById("myBookings");
+      const modal = document.getElementById("confirmationModal");
+      const closeModal = document.getElementById("closeModal");
+      const bookingDetails = document.getElementById("bookingDetails");
+      const confirmBookingBtn = document.getElementById("confirmBooking");
+      const tableSelect = document.getElementById("tableNumber");
+
+      // Render meja-meja billiard
+      function renderTables() {
+        tablesContainer.innerHTML = "";
+        tables.forEach((table) => {
+          const tableEl = document.createElement("div");
+          tableEl.className = `table-item ${table.status}`;
+          tableEl.innerHTML = `
+                    <h4>${table.name}</h4>
+                    <div class="status ${table.status}">${
+            table.status === "available" ? "Tersedia" : "Terpesan"
+          }</div>
+                `;
+          tableEl.addEventListener("click", () => selectTable(table));
+          tablesContainer.appendChild(tableEl);
+        });
+      }
+
+      // Pilih meja dan update dropdown
+      function selectTable(table) {
+        if (table.status === "booked") {
+          alert("Maaf, meja ini sudah terpesan. Silakan pilih meja lain.");
+          return;
+        }
+
+        tableSelect.value = table.id;
+        // Scroll to form
+        document
+          .querySelector(".booking-form")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      // Render daftar booking
+      function renderBookings() {
+        if (myBookings.length === 0) {
+          myBookingsContainer.innerHTML = `
+                    <div class="booking-item">
+                        <div class="booking-details">
+                            <h4>Belum ada booking</h4>
+                            <p>Silakan lakukan booking untuk melihat daftar booking Anda</p>
+                        </div>
+                    </div>
+                `;
+          return;
+        }
+
+        myBookingsContainer.innerHTML = "";
+        myBookings.forEach((booking, index) => {
+          const bookingEl = document.createElement("div");
+          bookingEl.className = "booking-item";
+
+          const bookingDate = new Date(booking.date + "T" + booking.time);
+          const formattedDate = bookingDate.toLocaleDateString("id-ID", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          });
+          const formattedTime = bookingDate.toLocaleTimeString("id-ID", {
+            hour: "2-digit",
+            minute: "2-digit",
+          });
+
+          // Render pesanan makanan/minuman
+          let foodOrders = "";
+          let totalFoodPrice = 0;
+
+          if (
+            booking.foodOrders &&
+            Object.keys(booking.foodOrders).length > 0
+          ) {
+            foodOrders = "<div class='food-orders'><h5>Pesanan:</h5><ul>";
+
+            for (const [item, quantity] of Object.entries(booking.foodOrders)) {
+              if (quantity > 0) {
+                const price = menuPrices[item];
+                totalFoodPrice += price * quantity;
+
+                // Format nama item untuk ditampilkan
+                const displayName = item
+                  .replace(/([A-Z])/g, " $1")
+                  .replace(/^./, (str) => str.toUpperCase())
+                  .replace("Chicken Bulgogi", "Chicken Bulgogi")
+                  .replace("Es Teh", "Es Teh")
+                  .replace("Mix Platter", "Mix Platter");
+
+                foodOrders += `<li>${displayName}: ${quantity} x Rp ${price.toLocaleString(
+                  "id-ID"
+                )}</li>`;
+              }
+            }
+
+            foodOrders += `</ul><p><strong>Total Makanan/Minuman: Rp ${totalFoodPrice.toLocaleString(
+              "id-ID"
+            )}</strong></p></div>`;
+          }
+
+          bookingEl.innerHTML = `
+                    <div class="booking-details">
+                        <h4>Booking #${index + 1}: ${booking.name}</h4>
+                        <p>Meja ${
+                          booking.tableNumber
+                        } - ${formattedDate} pukul ${formattedTime}</p>
+                        <p>Durasi: ${booking.duration} jam (Rp ${(
+            booking.duration * 50000
+          ).toLocaleString("id-ID")})</p>
+                        ${foodOrders}
+                        <p><strong>Total Keseluruhan: Rp ${(
+                          booking.duration * 50000 +
+                          totalFoodPrice
+                        ).toLocaleString("id-ID")}</strong></p>
+                    </div>
+                    <div class="booking-actions">
+                        <button class="btn" onclick="cancelBooking(${index})">Batalkan</button>
+                    </div>
+                `;
+          myBookingsContainer.appendChild(bookingEl);
+        });
+      }
+
+      // Batalkan booking
+      function cancelBooking(index) {
+        if (confirm("Apakah Anda yakin ingin membatalkan booking ini?")) {
+          const booking = myBookings[index];
+          // Update status meja menjadi available
+          const tableIndex = tables.findIndex(
+            (t) => t.id === parseInt(booking.tableNumber)
+          );
+          if (tableIndex !== -1) {
+            tables[tableIndex].status = "available";
+          }
+          // Hapus booking
+          myBookings.splice(index, 1);
+
+          // Update tampilan
+          renderTables();
+          renderBookings();
+
+          alert("Booking berhasil dibatalkan");
+        }
+      }
+
+      // Fungsi untuk menangani perubahan jumlah pesanan
+      function setupQuantityControls() {
+        // Tambahkan event listener untuk tombol + dan -
+        document.querySelectorAll(".increase").forEach((button) => {
+          button.addEventListener("click", function () {
+            const itemId = this.getAttribute("data-item");
+            const input = document.getElementById(itemId);
+            input.value = parseInt(input.value) + 1;
+          });
+        });
+
+        document.querySelectorAll(".decrease").forEach((button) => {
+          button.addEventListener("click", function () {
+            const itemId = this.getAttribute("data-item");
+            const input = document.getElementById(itemId);
+            if (parseInt(input.value) > 0) {
+              input.value = parseInt(input.value) - 1;
+            }
+          });
+        });
+      }
+
+      // Submit form booking
+      bookingForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Validasi form
+        const name = document.getElementById("name").value;
+        const phone = document.getElementById("phone").value;
+        const tableNumber = document.getElementById("tableNumber").value;
+        const date = document.getElementById("date").value;
+        const time = document.getElementById("time").value;
+        const duration = document.getElementById("duration").value;
+
+        if (!name || !phone || !tableNumber || !date || !time || !duration) {
+          alert("Mohon lengkapi semua data booking");
+          return;
+        }
+
+        // Cek apakah meja tersedia
+        const selectedTable = tables.find(
+          (t) => t.id === parseInt(tableNumber)
+        );
+        if (!selectedTable || selectedTable.status === "booked") {
+          alert("Maaf, meja yang Anda pilih tidak tersedia");
+          return;
+        }
+
+        // Ambil data pesanan makanan/minuman
+        const foodOrders = {
+          cireng: parseInt(document.getElementById("cireng").value),
+          mixPlatter: parseInt(document.getElementById("mixPlatter").value),
+          kentang: parseInt(document.getElementById("kentang").value),
+          chickenBulgogi: parseInt(
+            document.getElementById("chickenBulgogi").value
+          ),
+          esTeh: parseInt(document.getElementById("esTeh").value),
+          coffee: parseInt(document.getElementById("coffee").value),
+        };
+
+        // Tampilkan detail booking di modal
+        const bookingDate = new Date(date + "T" + time);
+        const formattedDate = bookingDate.toLocaleDateString("id-ID", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+        const formattedTime = bookingDate.toLocaleTimeString("id-ID", {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+
+        // Hitung total harga makanan/minuman
+        let foodOrderDetails = "";
+        let totalFoodPrice = 0;
+
+        for (const [item, quantity] of Object.entries(foodOrders)) {
+          if (quantity > 0) {
+            const price = menuPrices[item];
+            totalFoodPrice += price * quantity;
+
+            // Format nama item untuk ditampilkan
+            const displayName = item
+              .replace(/([A-Z])/g, " $1")
+              .replace(/^./, (str) => str.toUpperCase())
+              .replace("Chicken Bulgogi", "Chicken Bulgogi")
+              .replace("Es Teh", "Es Teh")
+              .replace("Mix Platter", "Mix Platter");
+
+            foodOrderDetails += `<p>${displayName}: ${quantity} x Rp ${price.toLocaleString(
+              "id-ID"
+            )} = Rp ${(price * quantity).toLocaleString("id-ID")}</p>`;
+          }
+        }
+
+        if (totalFoodPrice > 0) {
+          foodOrderDetails = `<div class="food-order-details"><h4>Pesanan Makanan/Minuman:</h4>${foodOrderDetails}<p><strong>Total Makanan/Minuman: Rp ${totalFoodPrice.toLocaleString(
+            "id-ID"
+          )}</strong></p></div>`;
+        }
+
+        bookingDetails.innerHTML = `
+                <p><strong>Nama:</strong> ${name}</p>
+                <p><strong>No. HP:</strong> ${phone}</p>
+                <p><strong>Meja:</strong> Meja ${tableNumber}</p>
+                <p><strong>Tanggal:</strong> ${formattedDate}</p>
+                <p><strong>Jam:</strong> ${formattedTime}</p>
+                <p><strong>Durasi:</strong> ${duration} jam (Rp ${(
+          duration * 50000
+        ).toLocaleString("id-ID")})</p>
+                ${foodOrderDetails}
+                <p><strong>Total Harga:</strong> Rp ${(
+                  duration * 50000 +
+                  totalFoodPrice
+                ).toLocaleString("id-ID")}</p>
+            `;
+
+        // Tampilkan modal konfirmasi
+        modal.style.display = "flex";
+
+        // Simpan data booking untuk digunakan saat konfirmasi
+        confirmBookingBtn.dataset.booking = JSON.stringify({
+          name,
+          phone,
+          tableNumber,
+          date,
+          time,
+          duration,
+          foodOrders,
+        });
+      });
+
+      // Konfirmasi booking
+      confirmBookingBtn.addEventListener("click", function () {
+        const bookingData = JSON.parse(this.dataset.booking);
+
+        // Update status meja
+        const tableIndex = tables.findIndex(
+          (t) => t.id === parseInt(bookingData.tableNumber)
+        );
+        if (tableIndex !== -1) {
+          tables[tableIndex].status = "booked";
+        }
+
+        // Tambahkan ke daftar booking
+        myBookings.push(bookingData);
+
+        // Update tampilan
+        renderTables();
+        renderBookings();
+
+        // Tutup modal
+        modal.style.display = "none";
+
+        // Reset form
+        bookingForm.reset();
+
+        // Reset jumlah pesanan makanan/minuman
+        document
+          .querySelectorAll('.menu-items input[type="number"]')
+          .forEach((input) => {
+            input.value = 0;
+          });
+
+        alert("Booking berhasil dikonfirmasi!");
+      });
+
+      // Tutup modal
+      closeModal.addEventListener("click", function () {
+        modal.style.display = "none";
+      });
+
+      // Tutup modal jika klik di luar modal
+      window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+
+      // Set tanggal minimal untuk input date (hari ini)
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, "0");
+      const dd = String(today.getDate()).padStart(2, "0");
+      const todayStr = `${yyyy}-${mm}-${dd}`;
+      document.getElementById("date").min = todayStr;
+
+      // Inisialisasi tampilan
+      renderTables();
+      renderBookings();
+      setupQuantityControls();
+    </script>
+  </body>
+</html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>kelompok 5</h1>
+  </body>
+</html>
+54e847edcc4b43fa81ad35cbef21d5cb92684c10
+>>>>>>> a9ecc7cb65d23e524a4f33afeb9296b58a2104a7
