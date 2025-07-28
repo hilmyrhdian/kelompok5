@@ -14,7 +14,11 @@ body {
 
 .container {
   width: 90%;
+<<<<<<< HEAD
   max-width: 1200px; /* Adjusted from 12000px to 1200px */
+=======
+  max-width: 12000px;
+>>>>>>> 467f721d15c34958fcee8351f6821960f62644d4
   margin: 0 auto;
   padding: 20px 0;
 }
@@ -50,11 +54,14 @@ nav ul li a {
   text-decoration: none;
   padding: 10px 15px;
   display: block;
+<<<<<<< HEAD
   transition: background-color 0.3s; /* Added transition */
 }
 
 nav ul li a:hover {
   background-color: #34495e; /* Added hover effect */
+=======
+>>>>>>> 467f721d15c34958fcee8351f6821960f62644d4
 }
 
 /* Hero Section */
@@ -78,6 +85,7 @@ nav ul li a:hover {
   border-radius: 5px;
   text-decoration: none;
   margin-top: 15px;
+<<<<<<< HEAD
   border: none; /* Added for consistency */
   cursor: pointer; /* Added for better UX */
   transition: background-color 0.3s ease; /* Added transition for hover */
@@ -85,6 +93,8 @@ nav ul li a:hover {
 
 .btn:hover {
   background-color: #c0392b; /* Added hover effect */
+=======
+>>>>>>> 467f721d15c34958fcee8351f6821960f62644d4
 }
 
 /* Booking Section Layout */
@@ -243,11 +253,14 @@ nav ul li a:hover {
   border-radius: 3px;
   cursor: pointer;
   font-size: 14px;
+<<<<<<< HEAD
   transition: background-color 0.3s ease; /* Added transition for hover */
 }
 
 .quantity-control button:hover {
   background-color: #2980b9; /* Added hover effect */
+=======
+>>>>>>> 467f721d15c34958fcee8351f6821960f62644d4
 }
 
 .quantity-control input {
@@ -319,9 +332,13 @@ footer {
   color: white;
   margin-right: 15px;
   text-decoration: none;
+<<<<<<< HEAD
   transition: color 0.3s; /* Added transition */
 }
 
 .social-links a:hover {
   color: #e74c3c; /* Added hover effect */
 }
+=======
+}
+>>>>>>> 467f721d15c34958fcee8351f6821960f62644d4
