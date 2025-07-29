@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pembayaran Booking</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      padding: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 480px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 25px;
+    }
+
+    .detail {
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    .label {
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    .button {
+      width: 100%;
+      background: #28a745;
+      color: #fff;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 25px;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background: #218838;
+    }
+
+    .code-box {
+      margin-top: 25px;
+      background-color: #eaf0f6;
+      border-left: 5px solid #2c3e50;
+      padding: 16px 20px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 17px;
+      color: #2c3e50;
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .success-message {
+      color: #2c3e50;
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    /* Modal Style */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.4);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      color: #2c3e50;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+
+    .modal-content h3 {
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: #28a745;
+    }
+
+    .modal-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .modal-buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .confirm {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .cancel {
+      background-color: #b0b0b0;
+      color: white;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Booking Dikonfirmasi</h2>
+  <div class="detail"><span class="label">Nama:</span> wiehjr</div>
+  <div class="detail"><span class="label">Telepon:</span> e243242324323432</div>
+  <div class="detail"><span class="label">Meja:</span> 4</div>
+  <div class="detail"><span class="label">Jam Mulai:</span> 30 April 2025, 13:44</div>
+  <div class="detail"><span class="label">Jam Selesai:</span> 30 April 2025, 19:45</div>
+
+  <button class="button" onclick="tampilkanModal()">Konfirmasi & Lihat Kode</button>
+
+  <div class="code-box" id="kodeBox">
+    Kode Booking Anda: <strong id="kodeBooking"></strong><br>
+    Tunjukkan kode ini ke kasir untuk pembayaran tunai.
+  </div>
+
+  <div class="success-message" id="successMsg">
+    ✅ Kode berhasil dibuat. Silakan bayar langsung ke kasir.
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="konfirmasiModal">
+  <div class="modal-content">
+    <h3>Apakah Anda yakin ingin mengkonfirmasi dan melihat kode?</h3>
+    <div class="modal-buttons">
+      <button class="confirm" onclick="konfirmasi()">Ya, Lanjutkan</button>
+      <button class="cancel" onclick="tutupModal()">Batal</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let sudahDibuat = false;
+  let kodeTersimpan = '';
+
+  function tampilkanModal() {
+    document.getElementById("konfirmasiModal").style.display = "flex";
+  }
+
+  function tutupModal() {
+    document.getElementById("konfirmasiModal").style.display = "none";
+  }
+
+  function konfirmasi() {
+    if (!sudahDibuat) {
+      const kode = "BK" + Math.floor(100000 + Math.random() * 900000);
+      kodeTersimpan = kode;
+      sudahDibuat = true;
+    }
+    tampilkanKode();
+    tutupModal();
+  }
+
+  function tampilkanKode() {
+    document.getElementById("kodeBooking").innerText = kodeTersimpan;
+    document.getElementById("kodeBox").style.display = "block";
+    document.getElementById("successMsg").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
